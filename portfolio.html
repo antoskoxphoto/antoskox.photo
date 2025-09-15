@@ -27,18 +27,19 @@
     /* Header */
     header {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      padding: 20px 28px;
+      padding: 15px 20px;
       background: rgba(0,0,0,0.25);
       backdrop-filter: blur(4px);
       position: sticky;
       top: 0;
       z-index: 50;
     }
-    .brand { display: flex; gap: 12px; align-items: center; }
-    nav { display: flex; gap: 14px; }
-    .btn { padding: 8px 12px; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.03); }
+    .brand { display: flex; gap: 10px; align-items: center; }
+    nav { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 5px; }
+    .btn { padding: 6px 10px; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.03); font-size: 14px; }
 
     /* Hero section */
     .hero {
@@ -102,12 +103,33 @@
     .prev { left: 10px; }
     .next { right: 10px; }
 
+    /* O mnie i kontakt */
+    .about-contact {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 28px;
+    }
+    .card {
+      background: linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .card h2, .card h3 { margin-top: 0; }
+
     /* Footer */
     footer { padding: 18px 28px; text-align: center; color: var(--muted); font-size: 14px; }
 
     /* Responsywność */
-    @media (max-width:900px) { .hero { grid-template-columns:1fr; gap:18px; } }
-    @media (max-width:520px) { .hero-left h1 { font-size:28px; } }
+    @media (max-width:900px) {
+      .hero { grid-template-columns:1fr; gap:18px; }
+      .about-contact { grid-template-columns:1fr; gap:18px; }
+    }
+    @media (max-width:520px) {
+      .hero-left h1 { font-size:28px; }
+      .btn { font-size:13px; padding:5px 8px; }
+    }
   </style>
 </head>
 <body>
@@ -156,8 +178,8 @@
       </div>
     </section>
 
-    <section id="o-mnie" class="about-contact" style="padding:28px;display:grid;grid-template-columns:1fr 360px;gap:28px">
-      <div class="card" style="background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
+    <section id="o-mnie" class="about-contact">
+      <div class="card">
         <h2>O mnie</h2>
         <p style="color:var(--muted)">
           Półprofesjonalny fotograf sportowy – potrafię złapać emocje na boisku, ale wciąż bliżej mi do amatora niż do zawodowca. Uczę się cały czas i odkładam na lepszy sprzęt.<br>
@@ -165,7 +187,7 @@
         </p>
       </div>
 
-      <aside class="card" id="kontakt" style="background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
+      <aside class="card" id="kontakt">
         <h3>Kontakt</h3>
         <p style="color:var(--muted);margin-top:6px">Mail: <a href="mailto:antoskox.photo@gmail.com">antoskox.photo@gmail.com</a><br>
         Tel: <a href="tel:+48885444383">+48 885 444 383</a></p>
@@ -199,9 +221,10 @@
     prevBtn.addEventListener("click", () => showImage(currentIndex - 1));
     nextBtn.addEventListener("click", () => showImage(currentIndex + 1));
 
+    // zmiana zdjęć co 3 sekundy
     setInterval(() => {
       showImage(currentIndex + 1);
-    }, 10000);
+    }, 3000);
   </script>
 </body>
 </html>
