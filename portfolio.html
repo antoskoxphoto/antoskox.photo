@@ -1,11 +1,3 @@
-<!-- 
-Szablon: Portfolio fotografa sportowego
-Instrukcja: Zastąp pliki w folderze /images (photo1.jpg .. photo12.jpg) swoimi zdjęciami
-Edytuj teksty w sekcjach: HERO, O MNIE, GALERIA, KONTAKT
-Jak używać: zapisz plik jako index.html i wrzuć na hosting (GitHub Pages, Netlify, Vercel, itp.)
-Licencja: możesz modyfikować dowolnie.
--->
-
 <!doctype html>
 <html lang="pl">
 <head>
@@ -15,101 +7,124 @@ Licencja: możesz modyfikować dowolnie.
   <meta name="description" content="Portfolio fotografa sportowego. Emocje, akcja, wynik w obrazach.">
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   <style>
-    /* Reset minimalny */
-    :root{--accent:#0b6;--bg:#0f1720;--card:#0b1220;--muted:#9aa3ad}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#071018 0%,#07151d 100%);color:#e6eef6;line-height:1.5}
-    a{color:var(--accent);text-decoration:none}
-    header{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;background:rgba(0,0,0,0.25);backdrop-filter:blur(4px);position:sticky;top:0;z-index:50}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,#111827,#0ea5a6);display:flex;align-items:center;justify-content:center;font-weight:700}
-    nav{display:flex;gap:14px}
-    .btn{padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03)}
-
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 28px}
-    .hero-left h1{font-size:38px;margin:0 0 12px}
-    .hero-left p{color:var(--muted);margin:0 0 18px}
-    .cta{display:flex;gap:12px}
-
-    .gallery{padding:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-    .thumb{position:relative;overflow:hidden;border-radius:10px;background:linear-gradient(180deg,rgba(0,0,0,0.2),rgba(0,0,0,0.4));cursor:pointer}
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
-    .thumb:hover img{transform:scale(1.06)}
-    .meta{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,0.5);padding:6px 8px;border-radius:6px;font-size:13px}
-
-    .about-contact{display:grid;grid-template-columns:1fr 360px;gap:28px;padding:28px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-
-    footer{padding:18px 28px;text-align:center;color:var(--muted);font-size:14px}
-
-    /* Lightbox */
-    .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:200;background:rgba(2,6,23,0.85)}
-    .lightbox.open{display:flex}
-    .lightbox img{max-width:90%;max-height:90%;border-radius:6px;box-shadow:0 12px 40px rgba(0,0,0,0.6)}
-    .close{position:absolute;top:18px;right:18px;background:rgba(255,255,255,0.04);padding:8px;border-radius:8px}
-
-    /* responsive */
-    @media (max-width:900px){.hero{grid-template-columns:1fr;gap:18px}.about-contact{grid-template-columns:1fr}} 
-    @media (max-width:520px){.hero-left h1{font-size:28px}}
-
-    /* Extra poprawki dla telefonów */
-    @media (max-width:480px){
-      header{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:8px;
-        padding:12px 18px;
-      }
-      nav{
-        flex-wrap:wrap;
-        gap:8px;
-      }
-      .btn{
-        padding:6px 10px;
-        font-size:14px;
-      }
-      .hero{
-        padding:32px 18px;
-      }
-      .hero-left h1{
-        font-size:22px;
-        line-height:1.3;
-      }
-      .hero-left p{
-        font-size:14px;
-      }
-      .cta{
-        flex-direction:column;
-        gap:8px;
-      }
-      .gallery{
-        grid-template-columns:1fr;
-        gap:10px;
-      }
-      .about-contact{
-        padding:18px;
-      }
-      footer{
-        font-size:12px;
-        padding:12px;
-      }
+    :root {
+      --accent: #0b6;
+      --bg: #0f1720;
+      --card: #0b1220;
+      --muted: #9aa3ad;
     }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg,#071018 0%,#07151d 100%);
+      color: #e6eef6;
+      line-height: 1.5;
+    }
+    a { color: var(--accent); text-decoration: none; }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 28px;
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(4px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .brand { display: flex; gap: 12px; align-items: center; }
+    nav { display: flex; gap: 14px; }
+    .btn { padding: 8px 12px; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.03); }
+
+    /* Hero section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 28px;
+      align-items: center;
+      padding: 48px 28px;
+    }
+    .hero-left h1 { font-size: 38px; margin: 0 0 12px; }
+    .hero-left p { color: var(--muted); margin: 0 0 18px; }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* Slider sekcja */
+    .gallery-slider {
+      position: relative;
+      padding: 28px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      overflow: hidden;
+    }
+    .gallery-slider::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("photo1.jpg") center/cover no-repeat;
+      filter: blur(20px) brightness(0.4);
+      z-index: 0;
+    }
+    .slider {
+      position: relative;
+      max-width: 900px;
+      width: 90%;
+      z-index: 1;
+    }
+    .slider img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+      object-fit: cover;
+    }
+    .slider button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.4);
+      border: none;
+      color: white;
+      font-size: 32px;
+      padding: 8px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .slider button:hover { background: rgba(0,0,0,0.7); }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* Footer */
+    footer { padding: 18px 28px; text-align: center; color: var(--muted); font-size: 14px; }
+
+    /* Responsywność */
+    @media (max-width:900px) { .hero { grid-template-columns:1fr; gap:18px; } }
+    @media (max-width:520px) { .hero-left h1 { font-size:28px; } }
   </style>
 </head>
 <body>
   <header>
     <div class="brand">
-  <img src="logo.jpg" alt="Logo Antoskox.photo" width="44" height="44" style="border-radius:8px;object-fit:cover;">
-  <div>
-    <div style="font-weight:700">Antoskox.photo</div>
-    <div style="font-size:13px;color:var(--muted)">Antoskox.photo — emocja, akcja, wynik</div>
-  </div>
-</div>
+      <img src="logo.jpg" alt="Logo Antoskox.photo" width="44" height="44" style="border-radius:8px;object-fit:cover;">
+      <div>
+        <div style="font-weight:700">Antoskox.photo</div>
+        <div style="font-size:13px;color:var(--muted)">Antoskox.photo — emocja, akcja, wynik</div>
+      </div>
+    </div>
 
     <nav>
       <a class="btn" href="#galeria">Galeria</a>
       <a class="btn" href="#o-mnie">O mnie</a>
       <a class="btn" href="#kontakt">Kontakt</a>
+      <a class="btn" href="https://www.instagram.com/antoskox.photo" target="_blank">Instagram</a>
     </nav>
   </header>
 
@@ -130,48 +145,30 @@ Licencja: możesz modyfikować dowolnie.
           <li>Sesje sportowe / treningi</li>
           <li>Sprzedaż zdjęć i prawa do wykorzystania</li>
         </ul>
-        <hr style="margin:12px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
-        <div style="font-size:13px;color:var(--muted)"><!--Cennik:</div>-->
       </div>
     </section>
 
-    <section id="galeria" class="gallery">
-      <div class="thumb" data-full="photo1.jpg"><img loading="lazy" src="photo1.jpg" alt="photo1"></div>
-      <div class="thumb" data-full="photo2.jpg"><img loading="lazy" src="photo2.jpg" alt="photo2"></div>
-      <div class="thumb" data-full="photo3.jpg"><img loading="lazy" src="photo3.jpg" alt="photo3"></div>
-      <div class="thumb" data-full="photo4.jpg"><img loading="lazy" src="photo4.jpg" alt="photo4"></div>
-      <div class="thumb" data-full="photo5.jpg"><img loading="lazy" src="photo5.jpg" alt="photo5"></div>
-      <div class="thumb" data-full="photo6.jpg"><img loading="lazy" src="photo6.jpg" alt="photo6"></div>
-      <div class="thumb" data-full="photo7.jpg"><img loading="lazy" src="photo7.jpg" alt="photo7"></div>
-      <div class="thumb" data-full="photo8.jpg"><img loading="lazy" src="photo8.jpg" alt="photo8"></div>
-      <div class="thumb" data-full="photo9.jpg"><img loading="lazy" src="photo9.jpg" alt="photo9"></div>
-      <div class="thumb" data-full="photo10.jpg"><img loading="lazy" src="photo10.jpg" alt="photo10"></div>
-      <div class="thumb" data-full="photo11.jpg"><img loading="lazy" src="photo11.jpg" alt="photo11"></div>
-      <div class="thumb" data-full="photo12.jpg"><img loading="lazy" src="photo12.jpg" alt="photo12"></div>
-      <div class="thumb" data-full="photo13.jpg"><img loading="lazy" src="photo13.jpg" alt="photo13"></div>
-      <div class="thumb" data-full="photo14.jpg"><img loading="lazy" src="photo14.jpg" alt="photo14"></div>
+    <section id="galeria" class="gallery-slider">
+      <div class="slider">
+        <button class="prev">&#10094;</button>
+        <img id="slider-img" src="photo1.jpg" alt="Slajd">
+        <button class="next">&#10095;</button>
+      </div>
     </section>
 
-    <section id="o-mnie" class="about-contact">
-      <div class="card">
+    <section id="o-mnie" class="about-contact" style="padding:28px;display:grid;grid-template-columns:1fr 360px;gap:28px">
+      <div class="card" style="background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
         <h2>O mnie</h2>
         <p style="color:var(--muted)">
           Półprofesjonalny fotograf sportowy – potrafię złapać emocje na boisku, ale wciąż bliżej mi do amatora niż do zawodowca. Uczę się cały czas i odkładam na lepszy sprzęt.<br>
           <a href="https://www.instagram.com/antoskox.photo" target="_blank">Mój instagram</a>
         </p>
-
-        <h3>Kluby / Zawodnicy z którymi współpracuje</h3>
-        <div style="display:flex;gap:10px;margin-top:8px">
-          <!-- Możesz dodać loga klubów -->
-        </div>
       </div>
 
-      <aside class="card" id="kontakt">
+      <aside class="card" id="kontakt" style="background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
         <h3>Kontakt</h3>
         <p style="color:var(--muted);margin-top:6px">Mail: <a href="mailto:antoskox.photo@gmail.com">antoskox.photo@gmail.com</a><br>
         Tel: <a href="tel:+48885444383">+48 885 444 383</a></p>
-
-        <hr style="margin:10px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
       </aside>
     </section>
   </main>
@@ -180,40 +177,31 @@ Licencja: możesz modyfikować dowolnie.
     © <span id="year"></span> antoskox.photo Wszelkie prawa zastrzeżone.
   </footer>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
-    <button class="close" id="lbClose">Zamknij ✕</button>
-    <img id="lbImg" src="" alt="">
-  </div>
-
   <script>
-    // ustaw rok w stopce
+    // ustaw rok
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // lightbox logic
-    const thumbs = document.querySelectorAll('.thumb');
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lbImg');
-    const lbClose = document.getElementById('lbClose');
+    // slider logic
+    const images = [
+      "photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg",
+      "photo7.jpg","photo8.jpg","photo9.jpg","photo10.jpg","photo11.jpg","photo12.jpg"
+    ];
+    let currentIndex = 0;
+    const sliderImg = document.getElementById("slider-img");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
 
-    thumbs.forEach(t => t.addEventListener('click', ()=>{
-      const src = t.getAttribute('data-full') || t.querySelector('img').src;
-      lbImg.src = src;
-      lb.classList.add('open');
-      lb.setAttribute('aria-hidden','false');
-    }));
-    lbClose.addEventListener('click', ()=>{ 
-      lb.classList.remove('open'); 
-      lb.setAttribute('aria-hidden','true'); 
-      lbImg.src=''; 
-    });
-    lb.addEventListener('click', (e)=>{ 
-      if(e.target===lb) { 
-        lb.classList.remove('open'); 
-        lb.setAttribute('aria-hidden','true'); 
-        lbImg.src=''; 
-      } 
-    });
+    function showImage(index) {
+      currentIndex = (index + images.length) % images.length;
+      sliderImg.src = images[currentIndex];
+    }
+
+    prevBtn.addEventListener("click", () => showImage(currentIndex - 1));
+    nextBtn.addEventListener("click", () => showImage(currentIndex + 1));
+
+    setInterval(() => {
+      showImage(currentIndex + 1);
+    }, 10000);
   </script>
 </body>
 </html>
